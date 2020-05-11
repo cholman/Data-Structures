@@ -13,13 +13,33 @@ return elements in First In First Out order.
 class Queue:
     def __init__(self):
         self.size = 0
-        # self.storage = ?
+        self.storage = []
     
     def __len__(self):
-        pass
+        return len(self.storage)
 
     def enqueue(self, value):
-        pass
+        self.storage.insert(0, value)
 
     def dequeue(self):
-        pass
+        if len(self.storage) == 0:
+            return None
+        else:
+        return self.storage.pop()
+
+# class Queue:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = LinkedList()
+    
+#     def __len__(self):
+#         return self.size
+
+#     def enqueue(self, value):
+#         pass
+
+#     def dequeue(self):
+#         if self.size == 0:
+#             return None
+#         else:
+#         return self.storage.remove_from_end()
