@@ -61,8 +61,11 @@ class LinkedList:
     def remove_from_end(self):
             # what if the list is empty? 
             if not self.head:
-                pass
+                return None
             # what if the list isn't empty?
+            elif not self.head.get_next():
+                return self.head.get_value()
+
             else:
                 # what node do we want to add the new node to? 
                 # the last node in the list 
@@ -72,9 +75,10 @@ class LinkedList:
                     current = current.get_next()
                 # we're at the end of the linked list 
                 nodeToDelete = current
-                current = self.head
-                while current.get_next() is not nodeToDelete:
-                    current = current.get_next()
-                current.set_next(None)
-                return current.get_value()
+                nodeToDeleteValue = current.get_value()
+                current2 = self.head
+                while current2.get_next() is not nodeToDelete:
+                    current2 = current2.get_next()
+                current2.set_next(None)
+                return nodeToDeleteValue
                     
